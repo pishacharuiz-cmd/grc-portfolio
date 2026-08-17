@@ -1,0 +1,7 @@
+{
+    "controls": [
+        {"id": "AC-1", "name": "Access Control Policy", "status": "Implemented"},
+        {"id": "AC-2", "name": "Account Management", "status": "Pending"},
+        {"id": "SC-7", "name": "Boundary Protection", "status": "Implemented"}
+    ]
+}
