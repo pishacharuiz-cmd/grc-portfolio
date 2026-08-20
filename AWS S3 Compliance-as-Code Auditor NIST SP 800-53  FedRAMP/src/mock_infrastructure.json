@@ -1,0 +1,19 @@
+{
+  "s3_buckets": [
+    {
+      "bucket_name": "company-financial-records-prod",
+      "encryption_enabled": true,
+      "public_access_blocked": true
+    },
+    {
+      "bucket_name": "legacy-marketing-assets-temp",
+      "encryption_enabled": false,
+      "public_access_blocked": false
+    },
+    {
+      "bucket_name": "customer-logs-archive",
+      "encryption_enabled": true,
+      "public_access_blocked": false
+    }
+  ]
+}
