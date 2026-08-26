@@ -1,4 +1,4 @@
-# Basic SQL Lab - GRC Portfolio
+# Basic SQL Lab
 
 ## Overview
 A simple collection of foundational SQL queries used for basic data extraction, user auditing, and compliance checks. 
