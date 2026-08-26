@@ -1,0 +1,26 @@
+project: "Enterprise AI Infrastructure GRC"
+framework: "NIST AI RMF / ISO 42001"
+risks:
+  - id: "RISK-001"
+    category: "AI Governance"
+    description: "Lack of continuous validation for automated training data inputs."
+    likelihood: 4  # Scale 1-5
+    impact: 5      # Scale 1-5
+    status: "Open"
+    mitigation: "Implement Open Policy Agent (OPA) checks in CI/CD pipeline."
+
+  - id: "RISK-002"
+    category: "Access Control"
+    description: "Privileged accounts lacking automated rotation enforcement."
+    likelihood: 3
+    impact: 4
+    status: "Open"
+    mitigation: "Enforce automated secret rotation via vault."
+
+  - id: "RISK-003"
+    category: "Data Privacy"
+    description: "Third-party vendor telemetry logging unmasked user metadata."
+    likelihood: 2
+    impact: 3
+    status: "Mitigated"
+    mitigation: "Deploy data-masking proxy middleware."
