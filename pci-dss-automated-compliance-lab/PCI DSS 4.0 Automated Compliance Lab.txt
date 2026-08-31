@@ -1,0 +1,14 @@
+PCI DSS 4.0 Automated Compliance LabA lightweight, Python-based compliance validation toolkit designed to programmatically audit technical controls and map them directly to PCI DSS 4.0 requirements. This project bridges GRC frameworks with engineering execution, demonstrating continuous monitoring for system integrity, audit logging, and cloud security posture.Features & PCI DSS MappingsControl DomainScript FilePCI DSS 4.0 RequirementDescriptionFile Integrity Monitoringcontrols/fim_checker.pyReq 11.5.2Generates SHA-256 baseline hashes of critical system files and detects unauthorized modifications.Audit Log Parsingcontrols/log_monitor.pyReq 10.2Analyzes authentication logs in real-time to identify brute-force attacks and invalid access attempts.Cloud Infrastructure Auditcontrols/cloud_audit.pyReq 1.4 / 3.1Audits simulated AWS security groups and S3 bucket policies for public exposure and encryption gaps.
+
+
+pci-dss-automated-compliance-lab/
+│
+├── README.md                  # Project documentation
+├── requirements.txt           # Python dependencies
+├── controls/                  
+│   ├── fim_checker.py         # File Integrity Monitoring script
+│   ├── log_monitor.py         # Audit log & brute-force parser
+│   └── cloud_audit.py         # Cloud security group & bucket auditor
+└── policies/                  
+    ├── access_control.md      # Least privilege & MFA policy documentation
+    └── data_retention.md      # PAN data minimization guidelines
