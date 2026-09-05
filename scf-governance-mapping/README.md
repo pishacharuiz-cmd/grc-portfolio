@@ -1,131 +1,76 @@
-# scf-governance-mapping
-Governance, Risk, and Compliance (GRC) portfolio mapping technical and documentation safeguards across global compliance frameworks (NIST CSF 2.0, ISO 27001, SOC 2) utilizing the Secure Controls Framework (SCF).
+# SCF Governance & Technical Controls Lab
 
-# SCF Governance & Technical Controls Lab: Compliance Mapping
+A hands-on GRC lab using the **Secure Controls Framework (SCF)** to connect governance and technical requirements with example evidence and follow-up activities.
 
-This lab demonstrates an understanding of enterprise governance and identity security by mapping SCF controls to practical evidence artifacts, utilizing the **Secure Controls Framework (SCF) 2026.1.1**.
+The project focuses on practical analyst tasks such as control mapping, evidence requests, exception documentation, access-control reviews, and basic policy-as-code.
 
 ## 1. Selected Governance Control: Policy Publishing
-* **SCF Domain:** Security, Compliance & Resilience Governance
-* **SCF Control ID:** GOV-02
-* **Control Name:** Publishing Security, Compliance & Resilience Documentation
-* **Control Description:** Mechanisms exist to establish, maintain and disseminate policies, standards and procedures necessary for secure, compliant and resilient capabilities.
-* **Conformity Validation Cadence:** Annual
 
----
+- **SCF Domain:** Security, Compliance & Resilience Governance
+- **SCF Control ID:** GOV-02
+- **Control Name:** Publishing Security, Compliance & Resilience Documentation
+- **Validation Cadence:** Annual
+
+The exercise demonstrates how a control requirement can be translated into evidence requests such as policy dissemination records, version-controlled documents, and review records.
 
 ## 2. Evidence Requests & Solutions Matrix
-Based on the organizational sizing definitions in the SCF, the following matrix demonstrates how an enterprise establishes an audit trail to prove this control is active:
 
-| SCF Evidence ID | Required Audit Evidence | Practical Implementation Solution |
+| SCF Evidence ID | Example Evidence | Practical Evidence Source |
 | :--- | :--- | :--- |
-| **E-GOV-08** | Policy Dissemination Logs | Centralized Corporate Intranet Portal (e.g., SharePoint / Confluence) tracking read-acknowledgments. |
-| **E-GOV-09** | Version-Controlled Policies | Formal Git-backed or DMS repository enforcing strict change-control workflows and approvals. |
-| **E-GOV-11** | Annual Policy Review Schedule | Governance committee calendar invites and signed minutes proving annual policy validation. |
+| **E-GOV-08** | Policy dissemination records | Intranet or document-management records showing policy distribution and acknowledgment. |
+| **E-GOV-09** | Version-controlled policies | Approved document repository or Git-backed workflow showing policy changes and approvals. |
+| **E-GOV-11** | Policy review records | Review schedule, meeting records, or approval documentation. |
 
----
+## 3. Analyst Validation Checklist
 
-## 3. GRC Analyst Implementation Blueprint (GOV-02)
-To satisfy **GOV-02** within an organization, a GRC Analyst must ensure that security documentation is not just written, but actively communicated and managed. 
+A GRC analyst supporting this control could:
 
-### Step-by-Step Validation Checklist:
-1. **Centralized Repository:** Establish a single source of truth for all security policies so employees do not reference outdated documents.
-2. **Access Control:** Ensure policy modification rights are strictly restricted to the Governance Committee or designated CISO staff.
-3. **Evidence Collection:** Maintain automated platform logs showing that 100% of onboarding employees have officially reviewed and accepted the mandatory Information Security Policy.
+1. Confirm the current approved policy.
+2. Verify that the policy is stored in the designated repository.
+3. Review available evidence showing distribution and acknowledgment.
+4. Check that required reviews occurred within the expected period.
+5. Document gaps and request follow-up evidence when needed.
 
----
+## 4. Exception Management
 
-## 4. Control Analysis: Exception Management
-* **SCF Control ID:** GOV-02.1
-* **Control Description:** Mechanisms exist to prohibit exceptions to standards, except when the exception has been formally assessed for risk impact, approved and recorded.
-* **Evidence Request ID:** E-GOV-18 (Exception Request Log / Form)
+**SCF Control:** GOV-02.1  
+**Evidence Request:** E-GOV-18
 
-### Practical GRC Application
-When a business unit cannot meet a mandatory security standard due to technical or operational limitations, a formal exception process must be triggered. As an analyst, I ensure that the risk impact is documented, a compensatory control is identified, formal executive approval is signed, and the entry is recorded in the centralized Exception Log to maintain audit readiness.
+This section demonstrates a basic exception-management workflow. When a requirement cannot be met, the analyst documents the reason, risk impact, proposed compensating controls, approval status, and review date.
 
----
+## 5. Identity & Access Management
 
-## 5. Technical Control Tracking: Identity & Access Management (IAC)
-While governance dictates the rules, technical controls enforce them. This section maps out the baseline requirements for user identity authentication, showing how the same piece of evidence can satisfy multiple overlapping requirements.
+| SCF Control ID | Focus | Example Evidence |
+| :--- | :--- | :--- |
+| **IAC-03.5** | Privileged access reviews | Provisioning records and access-review results. |
+| **IAC-04** | Multi-factor authentication | Identity-provider configuration or compliance reports. |
 
-### Control & Evidence Matrix
+### Evidence Efficiency
 
-| SCF Control ID | Control Name / Focus | Evidence Request ID | Core Objective & Practical Evidence Artifact |
-| :--- | :--- | :--- | :--- |
-| **IAC-03.5** | Privileged Access Reviews | **E-IAM-05** / **E-IAM-06** | System-generated provisioning logs and identity baseline compliance reports showing administrative rights are strictly audited. |
-| **IAC-04** | Multi-Factor Authentication | **E-IAM-05** / **E-IAM-06** | Configuration policies exported from the Identity Provider (IdP) proving MFA is continuously enforced for remote and admin sessions. |
+The same evidence source can sometimes support more than one control. Identifying those relationships helps reduce duplicate evidence requests while keeping the audit trail clear.
 
-> **Analyst Note on Evidence Efficiency:** Notice that `E-IAM-05` and `E-IAM-06` repeat across these controls. In enterprise GRC, this is a massive operational advantage. Collecting these identity configuration logs satisfies multiple compliance checkboxes simultaneously, demonstrating the "Map Once, Comply Many" efficiency of the SCF.
+## 6. AI & Autonomous Technology Controls
 
----
+This section extends the mapping exercise into AI governance topics.
 
-## 6. Technical Control Tracking: Artificial Intelligence & Autonomous Technologies (AAT)
+| SCF Control ID | Focus | Example Evidence |
+| :--- | :--- | :--- |
+| **AAT-01** | AI governance | AI inventory or asset register. |
+| **AAT-02** | AI risk assessment | Documented risk classification and assessment results. |
+| **AAT-04** | AI resiliency and guardrails | Policy-as-code evaluation results and documented review controls. |
 
-While traditional IAM and policy dissemination govern standard assets, AI introduces runtime behavioral risks, model drift, and data provenance challenges that require structured lifecycle boundaries and automated guardrails.
+## 7. Sample Policy-as-Code Check
 
-### Control & Evidence Matrix
+The repository includes an Open Policy Agent (OPA) / Rego example that evaluates an AI deployment configuration against selected governance conditions.
 
-| SCF Control ID | Control Name / Focus | Evidence Request ID | Core Objective & Practical Evidence Artifact |
-| :--- | :--- | :--- | :--- |
-| **AAT-01** | AI & Autonomous Technologies Governance | E-AAT-02 | Centralized AI Asset Registry tracking model inventory, intended business purpose, and data dependencies. |
-| **AAT-02** | AI Risk Assessment & Impact Thresholds | E-AAT-03 | Documented risk-tiering methodology classifying models (e.g., low, medium, high risk) to determine required technical oversight. |
-| **AAT-04** | AI System Resiliency & Guardrail Enforcement | E-AAT-05 | CI/CD policy-as-code evaluation logs (e.g., OPA/Rego outputs) validating automated safety filters and human-in-the-loop triggers prior to deployment. |
+The example checks for items such as:
 
----
+- Safety filters
+- Human reviewer assignment for high-risk models
+- Encryption at rest
 
-## 7. Policy-as-Code Implementation: AI Deployment Guardrail
+The Rego policy is a portfolio demonstration of how a GRC requirement can be translated into a technical check. It should be treated as a sample control implementation rather than a production deployment standard.
 
-To operationalize **SCF Control AAT-02 and AAT-04** alongside **NIST AI RMF (Manage)**, the following Open Policy Agent (OPA) **Rego** policy is enforced inside the CI/CD pipeline. It programmatically evaluates model deployment configurations to ensure that high-risk AI assets cannot reach production without explicit safety guardrails and human oversight.
+## Portfolio Note
 
-```rego
-package governance.ai.deployment
-
-import rego.v1
-
-default allow := false
-
-# Rule 1: Allow deployment if it's low/medium risk and meets baseline criteria
-allow if {
-    not high_risk_model
-    has_output_filters
-}
-
-# Rule 2: Allow deployment for high-risk models ONLY if strict oversight controls are met
-allow if {
-    high_risk_model
-    has_output_filters
-    has_designated_human_reviewer
-    encryption_at_rest_enabled
-}
-
-# Helper: Identify if the AI model is classified as High Risk (maps to AAT-02)
-high_risk_model if {
-    input.model.risk_tier == "high"
-}
-
-# Helper: Ensure safety guardrails/filters are active
-has_output_filters if {
-    input.model.safety_filters_enabled == true
-}
-
-# Helper: Ensure high-risk models have an assigned human reviewer (maps to AAT-04)
-has_designated_human_reviewer if {
-    input.governance.designated_reviewer != ""
-}
-
-# Helper: Ensure infrastructure encryption is enabled
-encryption_at_rest_enabled if {
-    input.infrastructure.encryption == true
-}
-
-# Custom denial messages for CI/CD pipeline logs
-deny contains msg if {
-    not has_output_filters
-    msg := "VIOLATION (AAT-04): AI model deployment blocked. Mandatory output safety filters are disabled."
-}
-
-deny contains msg if {
-    high_risk_model
-    not has_designated_human_reviewer
-    msg := "VIOLATION (AAT-01/AAT-04): High-risk AI model deployment blocked. Missing mandatory designated human reviewer assignment."
-}
+The mappings, evidence examples, and implementation scenarios in this project are illustrative. In a real environment, control applicability, evidence requirements, approval authority, and validation cadence would be confirmed against the organization's approved framework and procedures.
