@@ -14,34 +14,34 @@ base_input := {
     "human_approval": false
 }
 
-allow_safe_request if governance.allow with input as base_input
+test_allow_safe_request if governance.allow with input as base_input
 
-deny_unmasked_pii if not governance.allow with input as object.union(base_input, {
+test_deny_unmasked_pii if not governance.allow with input as object.union(base_input, {
     "contains_pii": true,
     "data_classification": "restricted",
     "pii_masked": false
 })
 
-deny_unapproved_vendor if not governance.allow with input as object.union(base_input, {
+test_deny_unapproved_vendor if not governance.allow with input as object.union(base_input, {
     "destination_type": "external_third_party",
     "approved_vendor": false
 })
 
-deny_low_fairness if not governance.allow with input as object.union(base_input, {
+test_deny_low_fairness if not governance.allow with input as object.union(base_input, {
     "fairness_score": 0.79
 })
 
-deny_missing_human_approval if not governance.allow with input as object.union(base_input, {
+test_deny_missing_human_approval if not governance.allow with input as object.union(base_input, {
     "use_case_risk": "high",
     "human_approval": false
 })
 
-allow_high_risk_with_approval if governance.allow with input as object.union(base_input, {
+test_allow_high_risk_with_approval if governance.allow with input as object.union(base_input, {
     "use_case_risk": "high",
     "human_approval": true
 })
 
-deny_multiple_violations if {
+test_deny_multiple_violations if {
     result := governance.decision with input as object.union(base_input, {
         "contains_pii": true,
         "data_classification": "restricted",
@@ -56,7 +56,7 @@ deny_multiple_violations if {
     count(result.violations) == 4
 }
 
-decision_contains_policy_version if {
+test_decision_contains_policy_version if {
     result := governance.decision with input as base_input
     result.policy_version == "1.1"
 }
