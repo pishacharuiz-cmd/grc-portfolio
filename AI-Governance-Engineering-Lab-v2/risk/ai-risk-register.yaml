@@ -1,0 +1,61 @@
+metadata:
+  purpose: "Simulated AI governance risk register for portfolio demonstration"
+  scoring: "likelihood 1-5 x impact 1-5"
+  note: "Scores are illustrative and not regulatory determinations."
+
+risks:
+  - id: AIR-001
+    title: "Restricted PII exposure"
+    category: privacy
+    likelihood: 3
+    impact: 5
+    inherent_score: 15
+    risk_tier: high
+    controls:
+      - "AI-GOV-PRIV-01"
+    treatment: mitigate
+    residual_risk: medium
+    owner: "AI Governance Owner"
+    status: open
+
+  - id: AIR-002
+    title: "Unauthorized third-party model processing"
+    category: vendor
+    likelihood: 3
+    impact: 5
+    inherent_score: 15
+    risk_tier: high
+    controls:
+      - "AI-GOV-VEND-01"
+    treatment: mitigate
+    residual_risk: medium
+    owner: "Third-Party Risk Owner"
+    status: open
+
+  - id: AIR-003
+    title: "Insufficient fairness validation"
+    category: model_risk
+    likelihood: 3
+    impact: 4
+    inherent_score: 12
+    risk_tier: medium
+    controls:
+      - "AI-GOV-FAIR-01"
+    treatment: mitigate
+    residual_risk: low
+    owner: "Model Risk Owner"
+    status: open
+
+  - id: AIR-004
+    title: "High-risk AI use without human oversight"
+    category: governance
+    likelihood: 2
+    impact: 5
+    inherent_score: 10
+    risk_tier: high
+    controls:
+      - "AI-GOV-HUMAN-01"
+    treatment: mitigate
+    residual_risk: low
+    owner: "AI Governance Owner"
+    status: open
