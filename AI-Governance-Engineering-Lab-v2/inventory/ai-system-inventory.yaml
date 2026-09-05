@@ -1,0 +1,52 @@
+metadata:
+  purpose: "Simulated AI system inventory for governance review"
+
+systems:
+  - id: AI-001
+    name: "Customer Support Assistant"
+    purpose: "Draft responses to customer support requests"
+    owner: "Customer Experience"
+    model_type: "External LLM"
+    data_classification: "internal"
+    third_party_processing: true
+    risk_tier: medium
+    human_oversight: true
+    approved_vendor: true
+    status: active
+    review_frequency: quarterly
+    control_ids:
+      - "AI-GOV-VEND-01"
+      - "AI-GOV-HUMAN-01"
+
+  - id: AI-002
+    name: "Internal Analytics Assistant"
+    purpose: "Summarize approved internal analytics data"
+    owner: "Data & Analytics"
+    model_type: "Internal LLM"
+    data_classification: "internal"
+    third_party_processing: false
+    risk_tier: low
+    human_oversight: optional
+    approved_vendor: true
+    status: active
+    review_frequency: semiannual
+    control_ids:
+      - "AI-GOV-PRIV-01"
+
+  - id: AI-003
+    name: "High-Risk Decision Support Prototype"
+    purpose: "Assist analysts with a simulated high-impact decision workflow"
+    owner: "Risk Management"
+    model_type: "External LLM"
+    data_classification: "restricted"
+    third_party_processing: true
+    risk_tier: high
+    human_oversight: mandatory
+    approved_vendor: true
+    status: pilot
+    review_frequency: monthly
+    control_ids:
+      - "AI-GOV-PRIV-01"
+      - "AI-GOV-VEND-01"
+      - "AI-GOV-FAIR-01"
+      - "AI-GOV-HUMAN-01"
