@@ -1,0 +1,24 @@
+name: AI Governance Policy Tests
+
+on:
+  push:
+    paths:
+      - "AI-Governance-Engineering-Lab-v2/**"
+  pull_request:
+    paths:
+      - "AI-Governance-Engineering-Lab-v2/**"
+
+jobs:
+  opa-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run OPA policy tests
+        uses: open-policy-agent/setup-opa@v2
+        with:
+          version: latest
+
+      - name: Test AI governance policy
+        run: opa test AI-Governance-Engineering-Lab-v2 -v --coverage
