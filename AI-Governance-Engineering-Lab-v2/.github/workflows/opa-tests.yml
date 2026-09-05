@@ -21,4 +21,15 @@ jobs:
           version: latest
 
       - name: Test AI governance policy
-        run: opa test AI-Governance-Engineering-Lab-v2 -v --coverage
+        run: |
+          opa test \
+            AI-Governance-Engineering-Lab-v2/policy.rego \
+            AI-Governance-Engineering-Lab-v2/policy_test.rego \
+            -v
+
+      - name: Measure policy coverage
+        run: |
+          opa test \
+            AI-Governance-Engineering-Lab-v2/policy.rego \
+            AI-Governance-Engineering-Lab-v2/policy_test.rego \
+            --coverage
