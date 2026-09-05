@@ -1,0 +1,10 @@
+{
+  "contains_pii": true,
+  "data_classification": "restricted",
+  "pii_masked": false,
+  "destination_type": "internal",
+  "approved_vendor": true,
+  "fairness_score": 0.91,
+  "use_case_risk": "medium",
+  "human_approval": false
+}
