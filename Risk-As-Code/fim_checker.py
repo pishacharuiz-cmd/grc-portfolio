@@ -1,38 +1,57 @@
-import yaml
-import sys
+import argparse
+import hashlib
+import json
+from pathlib import Path
 
-def load_risk_register(filepath):
-    try:
-        with open(filepath, 'r') as file:
-            return yaml.safe_load(file)
-    except FileNotFoundError:
-        print(f"Error: Risk register file '{filepath}' not found.")
-        sys.exit(1)
 
-def evaluate_risks(data):
-    print(f"==================================================")
-    print(f" Evaluating Risk Register: {data.get('project', 'Unknown')}")
-    print(f" Framework Alignment: {data.get('framework', 'N/A')}")
-    print(f"==================================================\\n")
-    
-    high_risk_threshold = 12  # Threshold for critical escalation
-    open_critical_count = 0
-    
-    for risk in data.get('risks', []):
-        score = risk['likelihood'] * risk['impact']
-        print(f"[{risk['id']}] {risk['category']} | Status: {risk['status']}")
-        print(f"  Description: {risk['description']}")
-        print(f"  Risk Score: {score} (Likelihood: {risk['likelihood']} x Impact: {risk['impact']})")
-        
-        if score >= high_risk_threshold and risk['status'] == 'Open':
-            print(f"  --> [CRITICAL ALERT]: Unmitigated high risk detected! Escalation required.")
-            open_critical_count += 1
-        print("-" * 50)
-        
-    print(f"\\nEvaluation Complete. Total Critical Open Risks: {open_critical_count}")
-    if open_critical_count > 0:
-        sys.exit(2)  # Fail pipeline if critical unmitigated risks exist
+def sha256_file(path):
+    digest = hashlib.sha256()
+    with Path(path).open("rb") as file:
+        for chunk in iter(lambda: file.read(65536), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def create_baseline(files, output):
+    baseline = {str(Path(f)): sha256_file(f) for f in files}
+    Path(output).write_text(json.dumps(baseline, indent=2) + "\n", encoding="utf-8")
+    print(f"Baseline written to {output}")
+
+
+def check_baseline(baseline_file):
+    baseline = json.loads(Path(baseline_file).read_text(encoding="utf-8"))
+    changed = []
+    missing = []
+    for file, expected in baseline.items():
+        path = Path(file)
+        if not path.exists():
+            missing.append(file)
+        elif sha256_file(path) != expected:
+            changed.append(file)
+    if not changed and not missing:
+        print("FIM CHECK: PASS - no protected files changed.")
+        return 0
+    print("FIM CHECK: FAIL")
+    for file in changed:
+        print(f"  CHANGED: {file}")
+    for file in missing:
+        print(f"  MISSING: {file}")
+    return 2
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Simple file-integrity monitoring check for the GRC lab.")
+    parser.add_argument("--baseline", default="fim_baseline.json")
+    parser.add_argument("--init", action="store_true")
+    parser.add_argument("files", nargs="*")
+    args = parser.parse_args()
+    if args.init:
+        if not args.files:
+            parser.error("--init requires one or more files")
+        create_baseline(args.files, args.baseline)
+        return 0
+    return check_baseline(args.baseline)
+
 
 if __name__ == "__main__":
-    risk_data = load_risk_register('risks.yaml')
-    evaluate_risks(risk_data)
+    raise SystemExit(main())

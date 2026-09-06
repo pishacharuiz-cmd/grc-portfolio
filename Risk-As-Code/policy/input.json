@@ -1,0 +1,7 @@
+{
+  "risks": [
+    {"id": "RISK-001", "likelihood": 4, "impact": 5, "status": "Open"},
+    {"id": "RISK-002", "likelihood": 3, "impact": 4, "status": "Open"},
+    {"id": "RISK-003", "likelihood": 2, "impact": 3, "status": "Mitigated"}
+  ]
+}
