@@ -1,0 +1,6 @@
+User,Role,Department,Admin_Access,Business_Justification,Manager_Approval,Review_Status
+Carlos Medina,System Administrator,IT,Yes,Yes,Yes,Approved
+Robert Diaz,Database Administrator,IT,Yes,Yes,Yes,Approved
+Daniel Cruz,IT Support Specialist,IT,Yes,No,Yes,Exception
+Maria Santos,Accountant,Finance,No,No,Yes,Approved
+Sofia Lopez,Marketing Coordinator,Marketing,No,No,Yes,Approved

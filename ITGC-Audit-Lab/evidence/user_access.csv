@@ -1,0 +1,8 @@
+User,Role,Department,Privileged,Manager_Approval,Access_Review_Status
+Maria Santos,Accountant,Finance,No,Yes,Approved
+David Rivera,Software Developer,IT,No,Yes,Approved
+Carlos Medina,System Administrator,IT,Yes,Yes,Approved
+Luis Torres,Operations Specialist,Operations,No,No,Exception
+Ana Perez,HR Specialist,Human Resources,No,Yes,Approved
+Robert Diaz,Database Administrator,IT,Yes,Yes,Approved
+Sofia Lopez,Marketing Coordinator,Marketing,No,Yes,Approved

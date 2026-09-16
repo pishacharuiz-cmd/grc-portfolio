@@ -1,0 +1,7 @@
+Employee,Department,Termination_Date,Account_Disabled_Date,Result
+John Smith,Finance,2026-02-15,2026-02-15,Pass
+Laura Gomez,HR,2026-03-10,2026-03-10,Pass
+Michael Rivera,IT,2026-03-22,2026-03-22,Pass
+Daniel Ortiz,Operations,2026-04-05,2026-04-07,Exception
+Sofia Martinez,Marketing,2026-04-18,2026-04-18,Pass
+Carlos Vega,Sales,2026-05-02,2026-05-02,Pass

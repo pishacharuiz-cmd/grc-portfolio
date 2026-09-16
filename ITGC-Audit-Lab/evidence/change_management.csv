@@ -1,0 +1,7 @@
+Change_ID,System,Description,Approval,Testing_Evidence,Implementation_Documented,Result
+CHG-001,Customer Portal,Security patch,Yes,Yes,Yes,Pass
+CHG-002,Database,Schema modification,Yes,Yes,Yes,Pass
+CHG-003,HR System,Configuration update,No,Yes,Yes,Exception
+CHG-004,API Gateway,Version upgrade,Yes,No,Yes,Exception
+CHG-005,File Server,Storage configuration,Yes,Yes,No,Exception
+CHG-006,Customer Portal,Performance optimization,Yes,Yes,Yes,Pass
