@@ -1,0 +1,21 @@
+customer_id,customer_name,status,balance,last_updated
+C001,Acme Retail,Active,1250.00,2026-09-18
+C002,Blue Harbor,Active,840.50,2026-09-18
+C003,Cedar Services,Inactive,0.00,2026-09-18
+C004,Delta Medical,Active,4300.00,2026-09-19
+C005,Evergreen Foods,Active,975.25,2026-09-19
+C006,Falcon Logistics,Active,2100.00,2026-09-19
+C007,Granite Works,Inactive,120.00,2026-09-19
+C008,Horizon Media,Active,560.75,2026-09-19
+C009,Island Supply,Active,1500.00,2026-09-19
+C010,Juniper Labs,Active,3200.00,2026-09-19
+C011,Keystone Design,Active,710.00,2026-09-19
+C012,Lighthouse Group,Inactive,0.00,2026-09-19
+C013,Metro Office,Active,890.00,2026-09-19
+C014,Northstar Tech,Active,2400.00,2026-09-19
+C015,Oak Systems,Active,615.40,2026-09-19
+C016,Pacific Trade,Active,1800.00,2026-09-19
+C017,Quantum Health,Active,3500.00,2026-09-19
+C018,Riverstone,Inactive,50.00,2026-09-19
+C019,Summit Partners,Active,1100.00,2026-09-19
+C020,Terra Consulting,Active,2750.00,2026-09-19

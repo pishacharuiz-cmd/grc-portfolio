@@ -51,6 +51,11 @@ A sample access-control policy covering MFA, least privilege, access approvals, 
 
 It demonstrates how common security requirements can be translated into practical policy language.
 
+### Business Data & Systems Integrity Lab
+A simulated business-systems investigation using SQL and Python to detect cross-system data inconsistencies, document business risk, and demonstrate remediation/validation workflow.
+
+The scenario is hypothetical and is designed as an interview-ready demonstration of data integrity, systems analysis, automation, and GRC thinking.
+
 ## GRC Workflow
 
 Across the projects, the general workflow is:
